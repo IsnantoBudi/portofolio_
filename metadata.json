@@ -1,6 +1,50 @@
 {
   "name": "IBN Portfolio",
-  "description": "A warm minimalist portfolio for Isnanto Budi Nurrahman.",
+  "description": "Portfolio profesional Isnanto Budi Nurrahman — Full-Stack & Mobile Developer dengan 3+ tahun pengalaman di domain Insurtech, SaaS Enterprise, dan Fintech.",
+  "version": "1.0.0",
+  "author": "Isnanto Budi Nurrahman",
+  "tech_stack": {
+    "frontend": ["React 19", "TypeScript 5.8", "Vite 6", "TailwindCSS v4", "Motion (Framer Motion)"],
+    "icons": ["Lucide React"],
+    "build": ["Vite", "ESM modules"],
+    "assets": ["WebP images", "Inline SVG tech badges"]
+  },
+  "architecture": {
+    "pattern": "Single-Page Scroll Navigation",
+    "navigation": "IntersectionObserver + smooth scroll",
+    "theming": "Dark/Light mode via localStorage + CSS class toggle",
+    "routing": "No router — scroll-based section navigation"
+  },
+  "pages": [
+    { "id": "home",       "component": "Home.tsx",       "desc": "Hero section dengan profil dan tech badges" },
+    { "id": "about",      "component": "About.tsx",       "desc": "Filosofi kerja dan nilai profesional" },
+    { "id": "experience", "component": "Experience.tsx",  "desc": "Timeline karir: BTM (2023-now) + Freelance (2022-2023)" },
+    { "id": "skills",     "component": "Skills.tsx",      "desc": "Grid skill: Frontend, Backend, Konsep, Tools" },
+    { "id": "projects",   "component": "Projects.tsx",    "desc": "Bento grid 4 proyek terpilih" },
+    { "id": "contact",    "component": "Contact.tsx",     "desc": "Form kontak dengan validasi client-side" }
+  ],
+  "projects_featured": [
+    "Manajemen Asuransi Core (Angular + Java)",
+    "TenantMaster Cloud (Next.js + Go)",
+    "Asuransi Mobile (Flutter)",
+    "School Management System (Angular + Java + MySQL)"
+  ],
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "scroll-based-navigation",
+    "dark-mode-toggle",
+    "scroll-progress-indicator",
+    "intersection-observer-active-section",
+    "contact-form-validation",
+    "animated-ui-framer-motion"
+  ],
+  "graphify": {
+    "report": "./graphify-out/GRAPH_REPORT.md",
+    "graph_json": "./graphify-out/graph.json",
+    "nodes": 36,
+    "edges": 32,
+    "communities": 9,
+    "last_commit": "d003d497",
+    "last_updated": "2026-05-12T15:46:00+07:00"
+  }
 }

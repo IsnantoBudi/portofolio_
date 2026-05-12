@@ -1,27 +1,29 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Briefcase, Smartphone, Code } from 'lucide-react';
-
-const experiences = [
-  {
-    year: 'Maret 2023 - Sekarang',
-    title: 'Full-Stack Developer',
-    company: 'PT. Bakti Tekno Mandiri',
-    description: 'Mengembangkan panel admin berbasis Angular untuk monitoring operasional, membangun aplikasi Android dengan Flutter untuk pemantauan real-time, serta mengintegrasikan REST API end-to-end.',
-    tags: ['Angular', 'Flutter', 'REST API', 'Git', 'Agile'],
-    icon: Briefcase
-  },
-  {
-    year: '2022 - 2023',
-    title: 'Freelance Full-Stack Developer',
-    company: 'Independent Projects',
-    description: 'Menyelesaikan berbagai proyek aplikasi web dan mobile kustom dengan fokus pada skalabilitas dan maintainability, termasuk sistem manajemen sekolah dan integrasi billing.',
-    tags: ['Next.js', 'Go', 'PostgreSQL', 'Java'],
-    icon: Code
-  }
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Experience() {
+  const { t } = useLanguage();
+  const experiences = [
+    {
+      year: t('exp.job1.date'),
+      title: 'Full-Stack Developer',
+      company: 'PT. Bakti Tekno Mandiri',
+      description: t('exp.job1.desc'),
+      tags: ['Angular', 'Flutter', 'REST API', 'Git', 'Agile'],
+      icon: Briefcase
+    },
+    {
+      year: t('exp.job2.date'),
+      title: 'Freelance Full-Stack Developer',
+      company: 'Independent Projects',
+      description: t('exp.job2.desc'),
+      tags: ['Next.js', 'Go', 'PostgreSQL', 'Java'],
+      icon: Code
+    }
+  ];
+
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24">
       <header className="max-w-4xl mb-20">
@@ -30,7 +32,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-6xl md:text-8xl font-black text-brand-orange mb-6 leading-[0.85]"
         >
-          <span>PENGALAMAN</span><br/><span>KERJA</span>
+          <span>{t('exp.title1')}</span><br/><span>{t('exp.title2')}</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +40,7 @@ export default function Experience() {
           transition={{ delay: 0.1 }}
           className="text-xl text-on-surface-variant font-medium leading-relaxed"
         >
-          Jejak langkah karir saya dalam merancang dan mengembangkan solusi perangkat lunak yang tangguh dan efisien.
+          {t('exp.subtitle')}
         </motion.p>
       </header>
 

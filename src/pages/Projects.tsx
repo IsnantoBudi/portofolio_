@@ -1,47 +1,59 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Github, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const projects = [
-  {
-    id: 1,
-    title: 'Manajemen Asuransi Core',
-    description: 'Platform back-office berbasis Angular untuk mengelola siklus hidup polis, klaim, dan administrasi dengan hak akses RBAC bertingkat.',
-    tags: ['Angular', 'Java', 'RBAC', 'SQL'],
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000&auto=format&fit=crop',
-    type: 'featured',
-    colSpan: 'md:col-span-8'
-  },
-  {
-    id: 2,
-    title: 'TenantMaster Cloud',
-    description: 'Platform B2B multi-tenant dengan isolasi data, arsitektur microservices, dan sistem billing terintegrasi.',
-    tags: ['Next.js', 'Go', 'Microservices', 'PostgreSQL'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop',
-    type: 'web',
-    colSpan: 'md:col-span-4'
-  },
-  {
-    id: 3,
-    title: 'Asuransi Mobile',
-    description: 'Aplikasi Android terintegrasi untuk akses e-polis, perpanjangan, dan klaim secara real-time.',
-    tags: ['Flutter', 'Dart', 'Android'],
-    image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1000&auto=format&fit=crop',
-    type: 'mobile',
-    colSpan: 'md:col-span-6'
-  },
-  {
-    id: 4,
-    title: 'School Management System',
-    description: 'Sistem komprehensif untuk mempermudah pengelolaan data administrasi, siswa, dan operasional sekolah.',
-    tags: ['Angular', 'Java', 'MySQL'],
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000&auto=format&fit=crop',
-    type: 'web',
-    colSpan: 'md:col-span-6'
-  }
-];
+import tenantMasterImg     from '../assets/images/tenant_master/home tenant master.png';
+import schoolManagementImg from '../assets/images/project manajemen sekolah/project menejemen web.webp';
+import ajarVisualImg       from '../assets/images/ajarvisual/AjarVisual_dashbord.png';
+import syncBoardImg        from '../assets/images/syncboard/SyncBoard.webp';
 
 export default function Projects() {
+  const { t } = useLanguage();
+
+  const projects = [
+    {
+      id: 1,
+      title: 'Warung Cloud',
+      description: t('proj.p1.desc'),
+      tags: ['Next.js', 'Go', 'Microservices', 'PostgreSQL'],
+      image: tenantMasterImg,
+      type: 'featured',
+      colSpan: 'md:col-span-8',
+      link: 'https://warung-cloud.my.id/'
+    },
+    {
+      id: 2,
+      title: 'AjarVisual',
+      description: t('proj.p2.desc'),
+      tags: ['Angular', 'Java', 'MySQL', 'LMS'],
+      image: ajarVisualImg,
+      type: 'web',
+      colSpan: 'md:col-span-4',
+      link: 'https://ajar-visual.vercel.app/'
+    },
+    {
+      id: 3,
+      title: 'SyncBoard',
+      description: t('proj.p3.desc'),
+      tags: ['React', 'Node.js', 'WebSocket'],
+      image: syncBoardImg,
+      type: 'web',
+      colSpan: 'md:col-span-6',
+      link: 'https://sync-board-frontend-mu.vercel.app/'
+    },
+    {
+      id: 4,
+      title: 'School Management System',
+      description: t('proj.p4.desc'),
+      tags: ['Angular', 'Java', 'MySQL', 'Flutter'],
+      image: schoolManagementImg,
+      type: 'web',
+      colSpan: 'md:col-span-6',
+      link: '#'
+    }
+  ];
+
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24">
       {/* Section Header */}
@@ -51,7 +63,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-6xl md:text-8xl font-black text-brand-orange mb-6 leading-[0.85]"
         >
-          <span>KARYA</span><br/><span>& RISSET</span>
+          <span>{t('proj.title1')}</span><br/><span>{t('proj.title2')}</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -59,7 +71,7 @@ export default function Projects() {
           transition={{ delay: 0.1 }}
           className="text-xl text-on-surface-variant font-medium leading-relaxed"
         >
-          Kumpulan proyek terpilih yang mencerminkan pendekatan fungsional dalam memecahkan masalah kompleks.
+          {t('proj.subtitle')}
         </motion.p>
       </header>
 
@@ -74,20 +86,19 @@ export default function Projects() {
             whileHover={{ y: -5 }}
             className={`${project.colSpan} bg-surface-default rounded-2xl border border-outline overflow-hidden flex flex-col group shadow-xl shadow-black/[0.02] transition-all hover:border-brand-orange`}
           >
-            {project.image && (
-              <div className={`w-full ${project.type === 'featured' ? 'md:h-1/2' : 'h-[280px]'} bg-gray-50 relative overflow-hidden`}>
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            )}
+            <div className={`w-full ${project.type === 'featured' ? 'h-[320px] md:h-[380px]' : 'h-[260px]'} bg-gray-50 relative overflow-hidden`}>
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+              />
+              {/* Overlay gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
             
-            <div className={`p-10 flex flex-col justify-between flex-grow ${project.type === 'featured' ? 'md:h-1/2' : ''}`}>
+            <div className={`p-10 flex flex-col justify-between flex-grow ${project.type === 'featured' ? '' : ''}`}>
               <div>
-                <div className="flex gap-2 mb-8">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tags.map((tag) => (
                     <span key={tag} className="rounded-full px-4 py-1.5 text-[9px] font-black uppercase tracking-widest bg-brand-orange text-white">
                       {tag}
@@ -101,14 +112,9 @@ export default function Projects() {
               </div>
               
               <div className="flex items-center gap-6">
-                <a href="#" className="inline-flex items-center gap-2 text-[10px] font-black text-on-surface uppercase tracking-widest hover:text-brand-orange transition-colors">
-                  VIEW PROJECT <ArrowUpRight className="w-4 h-4" />
+                <a href={project.link} target={project.link !== '#' ? "_blank" : undefined} rel={project.link !== '#' ? "noopener noreferrer" : undefined} className="inline-flex items-center gap-2 text-[10px] font-black text-on-surface uppercase tracking-widest hover:text-brand-orange transition-colors">
+                  {t('proj.view')} <ArrowUpRight className="w-4 h-4" />
                 </a>
-                {project.type === 'tooling' && (
-                  <a href="#" className="inline-flex items-center gap-2 text-[10px] font-black text-on-surface-variant uppercase tracking-widest hover:text-on-surface transition-colors">
-                    GITHUB <Github className="w-4 h-4" />
-                  </a>
-                )}
               </div>
             </div>
           </motion.article>

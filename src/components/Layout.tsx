@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import type { Screen } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { 
   Moon, 
   Sun,
@@ -18,8 +20,6 @@ import {
   Menu
 } from 'lucide-react';
 
-type Screen = 'Home' | 'About' | 'Experience' | 'Skills' | 'Projects' | 'Contact';
-
 interface LayoutProps {
   children: React.ReactNode;
   currentScreen: Screen;
@@ -27,12 +27,14 @@ interface LayoutProps {
 }
 
 const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScreen: Screen, onNavigate: (screen: Screen) => void, isDark: boolean, toggleTheme: () => void }) => {
+  const { language, setLanguage, t } = useLanguage();
+
   const navItems: { label: string, screen: Screen }[] = [
-    { label: 'Tentang', screen: 'About' },
-    { label: 'Pengalaman', screen: 'Experience' },
-    { label: 'Keahlian', screen: 'Skills' },
-    { label: 'Proyek', screen: 'Projects' },
-    { label: 'Kontak', screen: 'Contact' },
+    { label: t('nav.about'), screen: 'About' },
+    { label: t('nav.experience'), screen: 'Experience' },
+    { label: t('nav.skills'), screen: 'Skills' },
+    { label: t('nav.projects'), screen: 'Projects' },
+    { label: t('nav.contact'), screen: 'Contact' },
   ];
 
   return (
@@ -60,6 +62,13 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
         </nav>
 
         <div className="flex items-center gap-4">
+          <button
+            onClick={() => setLanguage(language === 'id' ? 'en' : 'id')}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-outline hover:bg-brand-orange hover:text-white transition-colors text-on-surface text-[11px] font-bold uppercase tracking-widest"
+            aria-label="Toggle language"
+          >
+            {language}
+          </button>
           <button 
             onClick={toggleTheme}
             className="w-10 h-10 flex items-center justify-center rounded-full bg-outline hover:bg-brand-orange hover:text-white transition-colors text-on-surface"
@@ -67,9 +76,14 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
           >
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
-          <button className="hidden md:flex bg-brand-black text-background-main px-8 py-3 rounded-button font-bold uppercase text-[10px] tracking-widest hover:bg-brand-orange hover:text-white transition-all">
-            Resume
-          </button>
+          <a 
+            href="https://drive.google.com/file/d/1bf9NY3Fz48YKUiWngK4RkQ72qfOW9l_A/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex bg-brand-black text-background-main px-8 py-3 rounded-button font-bold uppercase text-[10px] tracking-widest hover:bg-brand-orange hover:text-white transition-all"
+          >
+            {t('nav.resume')}
+          </a>
           <button className="md:hidden text-on-surface">
             <Menu className="w-6 h-6" />
           </button>
@@ -82,10 +96,8 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
 const Footer = ({ onNavigate }: { onNavigate: (screen: Screen) => void }) => {
   return (
     <footer className="h-16 w-full px-12 border-t border-outline flex items-center justify-between text-[9px] font-bold uppercase tracking-[0.2em] text-on-surface-variant bg-surface-default">
-      <div>© 2024 Isnanto Budi Nurrahman</div>
+      <div>© 2026 Isnanto Budi Nurrahman</div>
       <div className="hidden md:flex gap-8 italic normal-case font-medium">
-        <span>Curated Minimalist Design</span>
-        <span>Designed for high performance</span>
       </div>
     </footer>
   );

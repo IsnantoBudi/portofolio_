@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import type { Screen } from './types';
 import { motion } from 'motion/react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -12,8 +13,6 @@ import Experience from './pages/Experience';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-
-type Screen = 'Home' | 'About' | 'Experience' | 'Skills' | 'Projects' | 'Contact';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('Home');
