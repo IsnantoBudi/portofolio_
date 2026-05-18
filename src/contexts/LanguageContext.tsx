@@ -19,7 +19,7 @@ const translations: Translations = {
     'nav.resume': 'Resume',
     
     // Home
-    'home.badge': 'Full-Stack Portfolio 2025',
+    'home.badge': 'Full-Stack & Mobile Developer',
     'home.tagline': 'Full-Stack & Mobile Developer berpengalaman 3+ tahun dalam membangun arsitektur SaaS enterprise dan solusi finansial yang berdampak.',
     'home.cta.primary': 'Lihat Karya',
     'home.cta.secondary': 'Hubungi Saya',
@@ -108,7 +108,7 @@ const translations: Translations = {
     'nav.resume': 'Resume',
 
     // Home
-    'home.badge': 'Full-Stack Portfolio 2025',
+    'home.badge': 'Full-Stack & Mobile Developer',
     'home.tagline': 'Full-Stack & Mobile Developer with 3+ years of experience building enterprise SaaS architectures and impactful financial solutions.',
     'home.cta.primary': 'View Work',
     'home.cta.secondary': 'Contact Me',
