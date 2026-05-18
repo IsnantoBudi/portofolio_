@@ -62,8 +62,8 @@ export default function Experience() {
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-[10px] font-black text-brand-orange uppercase tracking-widest bg-brand-orange/5 px-3 py-1 rounded-full">{exp.year}</span>
                 </div>
-                <h3 className="text-2xl font-black text-on-surface mb-1 uppercase tracking-tight">{exp.title}</h3>
-                <h4 className="text-sm font-bold text-on-surface-variant mb-6 uppercase tracking-wider">{exp.company}</h4>
+                <h2 className="text-2xl font-black text-on-surface mb-1 uppercase tracking-tight">{exp.title}</h2>
+                <h3 className="text-sm font-bold text-on-surface-variant mb-6 uppercase tracking-wider">{exp.company}</h3>
                 <p className="text-sm text-on-surface-variant mb-8 leading-relaxed">
                   {exp.description}
                 </p>

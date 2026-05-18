@@ -7,7 +7,7 @@
 
   --color-background-main: var(--background-main);
   --color-surface-default: var(--surface-default);
-  --color-brand-orange: #f97316;
+  --color-brand-orange: var(--brand-orange);
   --color-brand-black: var(--brand-black);
   
   --color-on-surface: var(--on-surface);
@@ -21,15 +21,17 @@
 :root {
   --background-main: #FAFAFA;
   --surface-default: #FFFFFF;
+  --brand-orange: #c2410c;
   --brand-black: #1A1A1A;
   --on-surface: #1A1A1A;
-  --on-surface-variant: #6b7280;
+  --on-surface-variant: #4b5563;
   --outline: rgba(0, 0, 0, 0.05);
 }
 
 .dark {
   --background-main: #0B0B0B;
   --surface-default: #151515;
+  --brand-orange: #f97316;
   --brand-black: #F5F5F5;
   --on-surface: #F5F5F5;
   --on-surface-variant: #A0A0A0;

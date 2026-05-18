@@ -162,9 +162,9 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
             <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">
               {t('home.latestProject')}
             </p>
-            <h3 className="text-xl font-black leading-tight uppercase tracking-tight text-on-surface">
+            <h2 className="text-xl font-black leading-tight uppercase tracking-tight text-on-surface">
               TenantMaster Cloud
-            </h3>
+            </h2>
             <p className="text-on-surface-variant text-sm mt-1 font-medium">
               {t('home.latestProject.desc')}
             </p>

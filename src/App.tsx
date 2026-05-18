@@ -3,16 +3,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import type { Screen } from './types';
 import { motion } from 'motion/react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
-import About from './pages/About';
-import Experience from './pages/Experience';
-import Skills from './pages/Skills';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
+
+const About = lazy(() => import('./pages/About'));
+const Experience = lazy(() => import('./pages/Experience'));
+const Skills = lazy(() => import('./pages/Skills'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('Home');
@@ -67,21 +68,23 @@ export default function App() {
       <section id="home">
         <Home onNavigate={handleNavigate} />
       </section>
-      <section id="about">
-        <About />
-      </section>
-      <section id="experience">
-        <Experience />
-      </section>
-      <section id="skills">
-        <Skills />
-      </section>
-      <section id="projects">
-        <Projects />
-      </section>
-      <section id="contact">
-        <Contact />
-      </section>
+      <Suspense fallback={<div className="h-screen flex items-center justify-center text-brand-orange font-bold uppercase tracking-widest">Loading...</div>}>
+        <section id="about">
+          <About />
+        </section>
+        <section id="experience">
+          <Experience />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+      </Suspense>
     </Layout>
   );
 }

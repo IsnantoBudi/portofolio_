@@ -44,6 +44,7 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
           <button 
             onClick={() => onNavigate('Home')}
             className="text-xl font-black tracking-tighter uppercase text-brand-black hover:text-brand-orange"
+            aria-label="Go to Home"
           >
             IBN
           </button>
@@ -55,6 +56,7 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
               key={item.screen}
               onClick={() => onNavigate(item.screen)}
               className={`hover:text-brand-orange transition-colors relative ${currentScreen === item.screen ? 'text-brand-orange' : 'text-brand-black'}`}
+              aria-label={`Go to ${item.label}`}
             >
               {item.label}
             </button>
@@ -84,7 +86,7 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
           >
             {t('nav.resume')}
           </a>
-          <button className="md:hidden text-on-surface">
+          <button className="md:hidden text-on-surface" aria-label="Toggle menu">
             <Menu className="w-6 h-6" />
           </button>
         </div>
