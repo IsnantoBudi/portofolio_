@@ -98,10 +98,10 @@ export default function Skills() {
         >
           <div className="flex-1">
             <div className="flex items-center gap-4 mb-6">
-              <Cpu className="w-8 h-8 text-white" />
-              <h2 className="text-3xl font-black text-white uppercase tracking-tight">{t('skills.tools.title')}</h2>
+              <Cpu className="w-8 h-8 text-white dark:text-black" />
+              <h2 className="text-3xl font-black text-white dark:text-black uppercase tracking-tight">{t('skills.tools.title')}</h2>
             </div>
-            <p className="text-white/80 font-medium max-w-xl text-lg leading-relaxed">
+            <p className="text-white dark:text-black/80 font-medium max-w-xl text-lg leading-relaxed">
               {t('skills.tools.desc')}
             </p>
           </div>
@@ -110,7 +110,7 @@ export default function Skills() {
             {tools.map(tool => (
               <span
                 key={tool}
-                className="bg-white/20 text-white border border-white/30 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-orange transition-all"
+                className="bg-white/20 dark:bg-black/10 text-white dark:text-black border border-white/30 dark:border-black/20 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-orange dark:hover:bg-black dark:hover:text-brand-orange transition-all"
               >
                 {tool}
               </span>
