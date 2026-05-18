@@ -17,7 +17,8 @@ import {
   Briefcase,
   BookOpen,
   Send,
-  Menu
+  Menu,
+  X
 } from 'lucide-react';
 
 interface LayoutProps {
@@ -28,6 +29,7 @@ interface LayoutProps {
 
 const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScreen: Screen, onNavigate: (screen: Screen) => void, isDark: boolean, toggleTheme: () => void }) => {
   const { language, setLanguage, t } = useLanguage();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems: { label: string, screen: Screen }[] = [
     { label: t('nav.about'), screen: 'About' },
@@ -36,6 +38,11 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
     { label: t('nav.projects'), screen: 'Projects' },
     { label: t('nav.contact'), screen: 'Contact' },
   ];
+
+  const handleMobileNav = (screen: Screen) => {
+    onNavigate(screen);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-surface-default/80 backdrop-blur-md border-b border-outline h-20">
@@ -86,11 +93,46 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
           >
             {t('nav.resume')}
           </a>
-          <button className="md:hidden text-on-surface" aria-label="Toggle menu">
-            <Menu className="w-6 h-6" />
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden text-on-surface" 
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-20 left-0 w-full bg-surface-default border-b border-outline shadow-xl md:hidden flex flex-col p-6 gap-6 z-40"
+          >
+            <nav className="flex flex-col gap-6 text-sm font-bold uppercase tracking-widest">
+              {navItems.map((item) => (
+                <button
+                  key={item.screen}
+                  onClick={() => handleMobileNav(item.screen)}
+                  className={`text-left transition-colors ${currentScreen === item.screen ? 'text-brand-orange' : 'text-brand-black hover:text-brand-orange'}`}
+                >
+                  {item.label}
+                </button>
+              ))}
+              <a 
+                href="https://drive.google.com/file/d/1bf9NY3Fz48YKUiWngK4RkQ72qfOW9l_A/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-orange text-left border-t border-outline pt-6"
+              >
+                {t('nav.resume')}
+              </a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
