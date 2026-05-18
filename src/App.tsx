@@ -63,6 +63,30 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Delay loading Google Analytics to improve LCP and reduce blocking time
+    const timer = setTimeout(() => {
+      if (document.getElementById('ga-script')) return;
+      
+      const script1 = document.createElement('script');
+      script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-ESWR9F9J5T';
+      script1.async = true;
+      script1.id = 'ga-script';
+      document.head.appendChild(script1);
+
+      const script2 = document.createElement('script');
+      script2.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ESWR9F9J5T');
+      `;
+      document.head.appendChild(script2);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Layout currentScreen={currentScreen} onNavigate={handleNavigate}>
       <section id="home">

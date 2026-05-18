@@ -79,7 +79,7 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
           animate={{ opacity: 1, y: 0 }}
           className="mb-6"
         >
-          <span className="px-3 py-1 bg-brand-orange text-white text-[10px] font-bold uppercase tracking-widest rounded-full">
+          <span className="px-3 py-1 bg-brand-orange text-brand-black text-[10px] font-bold uppercase tracking-widest rounded-full">
             {t('home.badge')}
           </span>
         </motion.div>
@@ -116,7 +116,7 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
           {/* Primary */}
           <button
             onClick={handleGoProjects}
-            className="bg-brand-orange text-white px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-3 shadow-lg shadow-brand-orange/20"
+            className="bg-brand-orange text-brand-black px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-3 shadow-lg shadow-brand-orange/20"
           >
             {t('home.cta.primary')} <ArrowRight className="w-4 h-4" />
           </button>
@@ -124,7 +124,7 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
           {/* Secondary — border-outline renders correctly on both modes */}
           <button
             onClick={handleGoContact}
-            className="border border-outline text-on-surface px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest ring-1 ring-inset ring-outline hover:bg-brand-orange hover:text-white hover:border-brand-orange hover:ring-brand-orange transition-all flex items-center justify-center"
+            className="border border-outline text-on-surface px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest ring-1 ring-inset ring-outline hover:bg-brand-orange hover:text-brand-black hover:border-brand-orange hover:ring-brand-orange transition-all flex items-center justify-center"
           >
             {t('home.cta.secondary')}
           </button>

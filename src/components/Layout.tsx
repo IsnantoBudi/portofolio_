@@ -51,7 +51,7 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
           <button 
             onClick={() => onNavigate('Home')}
             className="text-xl font-black tracking-tighter uppercase text-brand-black hover:text-brand-orange"
-            aria-label="Go to Home"
+            aria-label="IBN - Go to Home"
           >
             IBN
           </button>
@@ -73,14 +73,14 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
         <div className="flex items-center gap-4">
           <button
             onClick={() => setLanguage(language === 'id' ? 'en' : 'id')}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-outline hover:bg-brand-orange hover:text-white transition-colors text-on-surface text-[11px] font-bold uppercase tracking-widest"
-            aria-label="Toggle language"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-outline hover:bg-brand-orange hover:text-brand-black transition-colors text-on-surface text-[11px] font-bold uppercase tracking-widest"
+            aria-label={`Toggle language to ${language === 'id' ? 'en' : 'id'}`}
           >
             {language}
           </button>
           <button 
             onClick={toggleTheme}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-outline hover:bg-brand-orange hover:text-white transition-colors text-on-surface"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-outline hover:bg-brand-orange hover:text-brand-black transition-colors text-on-surface"
             aria-label="Toggle theme"
           >
             {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -89,7 +89,7 @@ const Navbar = ({ currentScreen, onNavigate, isDark, toggleTheme }: { currentScr
             href="https://drive.google.com/file/d/1bf9NY3Fz48YKUiWngK4RkQ72qfOW9l_A/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex bg-brand-black text-background-main px-8 py-3 rounded-button font-bold uppercase text-[10px] tracking-widest hover:bg-brand-orange hover:text-white transition-all"
+            className="hidden md:flex bg-brand-black text-background-main px-8 py-3 rounded-button font-bold uppercase text-[10px] tracking-widest hover:bg-brand-orange hover:text-brand-black transition-all"
           >
             {t('nav.resume')}
           </a>

@@ -172,19 +172,19 @@ export default function About() {
             whileHover={{ y: -5 }}
             className="bg-brand-orange rounded-2xl p-10 shadow-xl relative overflow-hidden"
           >
-            <div className="relative z-10 text-white dark:text-black">
-              <div className="w-12 h-12 bg-white/20 dark:bg-black/10 rounded-full flex items-center justify-center mb-8">
-                <Mountain className="text-white dark:text-black w-6 h-6" />
+            <div className="relative z-10 text-brand-black">
+              <div className="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center mb-8">
+                <Mountain className="text-brand-black w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-black text-white dark:text-black mb-4">
+              <h3 className="text-2xl font-black text-brand-black mb-4">
                 {t('about.card2.title')}
               </h3>
-              <p className="text-white dark:text-black/80 text-sm font-medium leading-relaxed">
+              <p className="text-brand-black/80 text-sm font-medium leading-relaxed">
                 {t('about.card2.p')}
               </p>
             </div>
             {/* Decorative */}
-            <div className="absolute -bottom-8 -right-8 text-white/10 dark:text-black/5 text-8xl font-black select-none">
+            <div className="absolute -bottom-8 -right-8 text-black/5 text-8xl font-black select-none">
               ∞
             </div>
           </motion.div>

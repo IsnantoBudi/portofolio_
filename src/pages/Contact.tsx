@@ -95,7 +95,7 @@ export default function Contact() {
       label: 'LinkedIn',
       value: '/in/isnanto-budi',
       href: 'https://www.linkedin.com/in/isnanto-budi/',
-      accent: 'bg-brand-orange text-white',
+      accent: 'bg-brand-orange text-brand-black',
     },
     {
       icon: Github,
@@ -283,7 +283,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-brand-orange text-white h-14 rounded-full text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all duration-300 shadow-lg shadow-brand-orange/25 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-brand-orange/40 hover:scale-[1.01] active:scale-[0.99]'}`}
+                  className={`w-full bg-brand-orange text-brand-black h-14 rounded-full text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all duration-300 shadow-lg shadow-brand-orange/25 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-brand-orange/40 hover:scale-[1.01] active:scale-[0.99]'}`}
                 >
                   {isSubmitting ? (
                     <motion.div
