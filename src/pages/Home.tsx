@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback } from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import type { Screen } from '../types';
 import profileImg from '../assets/images/regenerated_image_1778572180933.webp';
 import { useLanguage } from '../contexts/LanguageContext';
-import anime from 'animejs';
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -60,8 +60,6 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
   const { t } = useLanguage();
   const handleGoProjects = useCallback(() => onNavigate('Projects'), [onNavigate]);
   const handleGoContact  = useCallback(() => onNavigate('Contact'),  [onNavigate]);
-  
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const stats: Stat[] = [
     { label: t('home.stat.expertise'),    value: t('home.stat.expertise.val') },
@@ -69,112 +67,56 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
     { label: t('home.stat.experience'),  value: t('home.stat.experience.val') },
   ];
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    // Set initial states to prevent FOUC (Flash of Unstyled Content) before animation
-    anime.set('.anime-badge', { opacity: 0, translateY: 20 });
-    anime.set('.anime-title span', { opacity: 0, translateY: 50, rotateZ: 5 });
-    anime.set('.anime-tagline', { opacity: 0, translateY: 20 });
-    anime.set('.anime-cta', { opacity: 0, translateY: 20, scale: 0.95 });
-    anime.set('.anime-photo-wrapper', { opacity: 0, scale: 0.95 });
-    anime.set('.anime-photo', { scale: 1.2 });
-    anime.set('.anime-right-panel > div', { opacity: 0, translateX: 30 });
-
-    const tl = anime.timeline({
-      easing: 'easeOutExpo',
-      duration: 1000,
-    });
-
-    // Animate Left Column
-    tl.add({
-      targets: '.anime-badge',
-      opacity: [0, 1],
-      translateY: [20, 0],
-      duration: 800,
-    })
-    .add({
-      targets: '.anime-title span',
-      opacity: [0, 1],
-      translateY: [50, 0],
-      rotateZ: [5, 0],
-      delay: anime.stagger(150),
-      easing: 'spring(1, 80, 10, 0)', // High impact spring
-    }, '-=400')
-    .add({
-      targets: '.anime-tagline',
-      opacity: [0, 1],
-      translateY: [20, 0],
-      duration: 800,
-    }, '-=800')
-    .add({
-      targets: '.anime-cta',
-      opacity: [0, 1],
-      translateY: [20, 0],
-      scale: [0.95, 1],
-      delay: anime.stagger(150),
-      easing: 'spring(1, 80, 10, 0)',
-    }, '-=600')
-    
-    // Animate Right Column
-    .add({
-      targets: '.anime-photo-wrapper',
-      opacity: [0, 1],
-      scale: [0.95, 1],
-      duration: 1200,
-      easing: 'easeOutQuart',
-    }, '-=1000')
-    .add({
-      targets: '.anime-photo',
-      scale: [1.2, 1],
-      duration: 1500,
-      easing: 'easeOutQuart',
-    }, '-=1200')
-    .add({
-      targets: '.anime-right-panel > div',
-      opacity: [0, 1],
-      translateX: [30, 0],
-      delay: anime.stagger(100),
-      duration: 800,
-      easing: 'easeOutCubic',
-    }, '-=1000');
-
-    return () => {
-      anime.remove('.anime-badge, .anime-title span, .anime-tagline, .anime-cta, .anime-photo-wrapper, .anime-photo, .anime-right-panel > div');
-    };
-  }, []);
-
   return (
-    <div ref={containerRef} className="relative min-h-[calc(100vh-80px)] flex flex-col md:flex-row overflow-hidden bg-background-main">
+    <div className="relative min-h-[calc(100vh-80px)] flex flex-col md:flex-row overflow-hidden bg-background-main">
 
       {/* ── Left Column: Hero Text ── */}
       <div className="w-full md:w-2/3 flex flex-col justify-center px-6 md:px-12 py-20 border-r border-outline">
 
         {/* Badge */}
-        <div className="mb-6 anime-badge">
-          <span className="px-3 py-1 bg-brand-orange text-brand-black text-[10px] font-bold uppercase tracking-widest rounded-full">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6"
+        >
+          <span className="px-3 py-1 bg-brand-orange text-white text-[10px] font-bold uppercase tracking-widest rounded-full">
             {t('home.badge')}
           </span>
-        </div>
+        </motion.div>
 
         {/* Name */}
-        <h1 className="anime-title text-[60px] sm:text-[80px] lg:text-[110px] font-black leading-[0.85] tracking-tighter uppercase text-brand-orange flex flex-col items-start overflow-hidden py-2">
-          <span className="inline-block transform origin-bottom-left">Isnanto</span>
-          <span className="inline-block transform origin-bottom-left">Budi</span>
-          <span className="inline-block transform origin-bottom-left">Nurrahman</span>
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-[60px] sm:text-[80px] lg:text-[110px] font-black leading-[0.85] tracking-tighter uppercase text-brand-orange"
+        >
+          <span>Isnanto</span><br/>
+          <span>Budi</span><br/>
+          <span>Nurrahman</span>
+        </motion.h1>
 
         {/* Tagline */}
-        <p className="anime-tagline mt-8 text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl font-medium">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mt-8 text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-xl font-medium"
+        >
           {t('home.tagline')}
-        </p>
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-4 mt-12"
+        >
           {/* Primary */}
           <button
             onClick={handleGoProjects}
-            className="anime-cta bg-brand-orange text-brand-black px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-3 shadow-lg shadow-brand-orange/20"
+            className="bg-brand-orange text-white px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-3 shadow-lg shadow-brand-orange/20"
           >
             {t('home.cta.primary')} <ArrowRight className="w-4 h-4" />
           </button>
@@ -182,18 +124,18 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
           {/* Secondary — border-outline renders correctly on both modes */}
           <button
             onClick={handleGoContact}
-            className="anime-cta border border-outline text-on-surface px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest ring-1 ring-inset ring-outline hover:bg-brand-orange hover:text-brand-black hover:border-brand-orange hover:ring-brand-orange transition-all flex items-center justify-center"
+            className="border border-outline text-on-surface px-10 py-5 rounded-full font-bold uppercase text-[10px] tracking-widest ring-1 ring-inset ring-outline hover:bg-brand-orange hover:text-white hover:border-brand-orange hover:ring-brand-orange transition-all flex items-center justify-center"
           >
             {t('home.cta.secondary')}
           </button>
-        </div>
+        </motion.div>
       </div>
 
       {/* ── Right Column: Profile & Stats ── */}
       <div className="w-full md:w-1/3 flex flex-col bg-surface-default">
 
         {/* Profile Photo — LCP element: fetchPriority + eager */}
-        <div className="anime-photo-wrapper h-[400px] md:h-1/2 overflow-hidden bg-surface-default relative group">
+        <div className="h-[400px] md:h-1/2 overflow-hidden bg-surface-default relative group">
           <img
             src={profileImg}
             alt="Isnanto Budi Nurrahman — Full-Stack Developer"
@@ -202,17 +144,21 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            className="anime-photo w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
           />
           {/* Gradient overlay for readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-surface-default via-transparent to-transparent" />
         </div>
 
         {/* Info Panel */}
-        <div className="anime-right-panel flex-1 px-8 md:px-12 pb-10 md:pb-12 flex flex-col justify-end gap-8">
+        <div className="flex-1 px-8 md:px-12 pb-10 md:pb-12 flex flex-col justify-end gap-8">
 
           {/* Latest Project */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
+          >
             <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-2">
               {t('home.latestProject')}
             </p>
@@ -222,10 +168,15 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
             <p className="text-on-surface-variant text-sm mt-1 font-medium">
               {t('home.latestProject.desc')}
             </p>
-          </div>
+          </motion.div>
 
           {/* Stats */}
-          <div className="space-y-3">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="space-y-3"
+          >
             {stats.map((stat) => (
               <div
                 key={stat.label}
@@ -239,10 +190,15 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
                 </span>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Tech Badges */}
-          <div className="flex gap-3">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6 }}
+            className="flex gap-3"
+          >
             {techLogos.map((tech) => (
               <a
                 key={tech.name}
@@ -255,7 +211,7 @@ export default function Home({ onNavigate }: HomeProps): React.JSX.Element {
                 {tech.icon}
               </a>
             ))}
-          </div>
+          </motion.div>
 
         </div>
       </div>
