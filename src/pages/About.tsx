@@ -233,14 +233,14 @@ export default function About() {
           <div
             className="anime-card bg-brand-orange rounded-2xl p-10 shadow-xl relative overflow-hidden transition-transform duration-300 hover:-translate-y-1"
           >
-            <div className="relative z-10 text-brand-black">
+            <div className="relative z-10 text-black">
               <div className="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center mb-8">
-                <Mountain className="text-brand-black w-6 h-6" />
+                <Mountain className="text-black w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-black text-brand-black mb-4">
+              <h3 className="text-2xl font-black text-black mb-4">
                 {t('about.card2.title')}
               </h3>
-              <p className="text-brand-black/80 text-sm font-medium leading-relaxed">
+              <p className="text-black/80 text-sm font-medium leading-relaxed">
                 {t('about.card2.p')}
               </p>
             </div>
