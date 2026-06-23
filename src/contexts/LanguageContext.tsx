@@ -71,6 +71,7 @@ const translations: Translations = {
     'proj.p2.desc': 'Platform e-learning berbasis visual dengan manajemen soal interaktif, dashboard instruktur, dan pengalaman belajar yang adaptif.',
     'proj.p3.desc': 'Aplikasi kolaborasi real-time untuk sinkronisasi tugas dan progres tim secara visual, mendukung workflow asinkron di lingkungan remote.',
     'proj.p4.desc': 'Sistem komprehensif untuk pengelolaan data administrasi, siswa, dan operasional sekolah — tersedia versi web dan Android.',
+    'proj.p5.desc': 'Platform AI untuk pencari kerja Indonesia — analisis ATS, generate cover letter, dan OCR lowongan menggunakan Google Gemini. Dibangun dengan Next.js, Supabase, dan Cloudflare R2.',
     'proj.view': 'LIHAT PROYEK',
 
     // Contact
@@ -160,6 +161,7 @@ const translations: Translations = {
     'proj.p2.desc': 'A visually-driven e-learning platform with interactive question management, instructor dashboards, and adaptive learning experiences.',
     'proj.p3.desc': 'A real-time collaboration app for visual team progress and task synchronization, supporting asynchronous workflows in remote environments.',
     'proj.p4.desc': 'A comprehensive system for managing school administration, students, and operations — available in web and Android versions.',
+    'proj.p5.desc': 'AI-powered job seeker platform for Indonesia — ATS analysis, cover letter generation, and job listing OCR using Google Gemini. Built with Next.js, Supabase, and Cloudflare R2.',
     'proj.view': 'VIEW PROJECT',
 
     // Contact

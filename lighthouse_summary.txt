@@ -1,0 +1,116 @@
+=== LIGHTHOUSE CATEGORIES ===
+Performance: 53/100
+Accessibility: 95/100
+Best Practices: 100/100
+SEO: 100/100
+Agentic Browsing: 100/100
+
+=== CRITICAL AUDITS (Score < 0.90) ===
+
+[first-contentful-paint] First Contentful Paint
+  Score: 0.18
+  Description: First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/).
+  Display Value: 4.3 s
+  Numeric Value: 4281 ms
+
+[largest-contentful-paint] Largest Contentful Paint
+  Score: 0.1
+  Description: Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)
+  Display Value: 6.4 s
+  Numeric Value: 6367 ms
+
+[speed-index] Speed Index
+  Score: 0.08
+  Description: Speed Index shows how quickly the contents of a page are visibly populated. [Learn more about the Speed Index metric](https://developer.chrome.com/docs/lighthouse/performance/speed-index/).
+  Display Value: 10.3 s
+  Numeric Value: 10343 ms
+
+[total-blocking-time] Total Blocking Time
+  Score: 0.76
+  Description: Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/).
+  Display Value: 320 ms
+  Numeric Value: 320 ms
+
+[max-potential-fid] Max Potential First Input Delay
+  Score: 0.67
+  Description: The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/).
+  Display Value: 200 ms
+  Numeric Value: 197 ms
+
+[interactive] Time to Interactive
+  Score: 0.6
+  Description: Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/).
+  Display Value: 6.4 s
+  Numeric Value: 6367 ms
+
+[redirects] Avoid multiple page redirects
+  Score: 0
+  Description: Redirects introduce additional delays before the page can be loaded. [Learn how to avoid page redirects](https://developer.chrome.com/docs/lighthouse/performance/redirects/).
+  Display Value: Est savings of 1,180 ms
+  Numeric Value: 1184 ms
+  Items:
+    1: {"url":"https://isnantobudi.online/","wastedMs":1183.6749999999997}
+    2: {"url":"https://www.isnantobudi.online/","wastedMs":0}
+
+[mainthread-work-breakdown] Minimize main-thread work
+  Score: 0
+  Description: Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. [Learn how to minimize main-thread work](https://developer.chrome.com/docs/lighthouse/performance/mainthread-work-breakdown/)
+  Display Value: 2.2 s
+  Numeric Value: 2234 ms
+  Items:
+    1: {"group":"scriptEvaluation","groupLabel":"Script Evaluation","duration":863.7799999999875}
+    2: {"group":"styleLayout","groupLabel":"Style & Layout","duration":786.2800000000003}
+    3: {"group":"other","groupLabel":"Other","duration":449.5120000000012}
+    4: {"group":"scriptParseCompile","groupLabel":"Script Parsing & Compilation","duration":67.52000000000001}
+    5: {"group":"paintCompositeRender","groupLabel":"Rendering","duration":54.58399999999999}
+
+[color-contrast] Background and foreground colors do not have a sufficient contrast ratio.
+  Score: 0
+  Description: Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.11/color-contrast).
+  Items:
+    1: {"node":{"type":"node","lhId":"1-0-SPAN","path":"1,HTML,1,BODY,0,DIV,0,DIV,2,MAIN,0,SECTION,0,DIV,0,DIV,0,DIV,0,SPAN","selector":"div.relative > div.w-full > div.mb-6 > span.px-3","boundingRect":{"top":148,"bottom":168,"left":24,"right":224,"width":200,"height":20},"snippet":"<span class=\"px-3 py-1 bg-brand-orange text-white text-[10px] font-bold uppercase track…\">","nodeLabel":"FULL-STACK PORTFOLIO 2025","explanation":"Fix any of the following:\n  Element has insufficient color contrast of 2.8 (foreground color: #ffffff, background color: #f97316, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"}}
+    2: {"node":{"type":"node","lhId":"1-1-BUTTON","path":"1,HTML,1,BODY,0,DIV,0,DIV,2,MAIN,0,SECTION,0,DIV,0,DIV,3,DIV,0,BUTTON","selector":"div.relative > div.w-full > div.flex > button.bg-brand-orange","boundingRect":{"top":542,"bottom":598,"left":24,"right":387,"width":363,"height":56},"snippet":"<button class=\"bg-brand-orange text-white px-10 py-5 rounded-full font-bold uppercase tex…\">","nodeLabel":"LIHAT KARYA","explanation":"Fix any of the following:\n  Element has insufficient color contrast of 2.8 (foreground color: #ffffff, background color: #f97316, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"}}
+
+[label-content-name-mismatch] Elements with visible text labels do not have matching accessible names.
+  Score: 0
+  Description: Visible text labels that do not match the accessible name can result in a confusing experience for screen reader users. [Learn more about accessible names](https://dequeuniversity.com/rules/axe/4.11/label-content-name-mismatch).
+  Items:
+    1: {"node":{"type":"node","lhId":"1-2-BUTTON","path":"1,HTML,1,BODY,0,DIV,0,DIV,0,HEADER,0,DIV,0,DIV,0,BUTTON","selector":"header.fixed > div.max-w-7xl > div.flex > button.text-xl","boundingRect":{"top":26,"bottom":54,"left":48,"right":79,"width":31,"height":28},"snippet":"<button class=\"text-xl font-black tracking-tighter uppercase text-brand-black hover:text-…\" aria-label=\"Go to Home\">","nodeLabel":"IBN","explanation":"Fix any of the following:\n  Text inside the element is not included in the accessible name"}}
+    2: {"node":{"type":"node","lhId":"1-3-BUTTON","path":"1,HTML,1,BODY,0,DIV,0,DIV,0,HEADER,0,DIV,2,DIV,0,BUTTON","selector":"header.fixed > div.max-w-7xl > div.flex > button.w-10","boundingRect":{"top":20,"bottom":60,"left":257,"right":297,"width":40,"height":40},"snippet":"<button class=\"w-10 h-10 flex items-center justify-center rounded-full bg-outline hover:b…\" aria-label=\"Toggle language\">","nodeLabel":"ID","explanation":"Fix any of the following:\n  Text inside the element is not included in the accessible name"}}
+
+[unused-javascript] Reduce unused JavaScript
+  Score: 0
+  Description: Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. [Learn how to reduce unused JavaScript](https://developer.chrome.com/docs/lighthouse/performance/unused-javascript/).
+  Display Value: Est savings of 112 KiB
+  Numeric Value: 670 ms
+  Items:
+    1: {"url":"https://www.googletagmanager.com/gtag/js?id=G-ESWR9F9J5T","totalBytes":159158,"wastedBytes":64904,"wastedPercent":40.77953049724932}
+    2: {"url":"https://www.isnantobudi.online/assets/index-DW3wzga2.js","totalBytes":117287,"wastedBytes":49812,"wastedPercent":42.4702430822799}
+
+[document-latency-insight] Document request latency
+  Score: 0
+  Description: Your first network request is the most important. [Reduce its latency](https://developer.chrome.com/docs/performance/insights/document-latency) by avoiding redirects, ensuring a fast server response, and enabling text compression.
+  Display Value: Est savings of 4,290 ms
+
+[lcp-breakdown-insight] LCP breakdown
+  Score: 0
+  Description: Each [subpart has specific improvement strategies](https://developer.chrome.com/docs/performance/insights/lcp-breakdown). Ideally, most of the LCP time should be spent on loading the resources, not within delays.
+  Items:
+    1: {"type":"table","headings":[{"key":"label","valueType":"text","label":"Subpart"},{"key":"duration","valueType":"ms","label":"Duration"}],"items":[{"subpart":"timeToFirstByte","label":"Time to first byte","duration":4451.654},{"subpart":"elementRenderDelay","label":"Element render delay","duration":1643.501}]}
+    2: {"type":"node","lhId":"page-0-H1","path":"1,HTML,1,BODY,0,DIV,0,DIV,2,MAIN,0,SECTION,0,DIV,0,DIV,1,H1","selector":"section#home > div.relative > div.w-full > h1.text-[60px]","boundingRect":{"top":192,"bottom":345,"left":24,"right":387,"width":363,"height":153},"snippet":"<h1 class=\"text-[60px] sm:text-[80px] lg:text-[110px] font-black leading-[0.85] track…\" style=\"opacity: 1; transform: none;\">","nodeLabel":"ISNANTO\nBUDI\nNURRAHMAN"}
+
+[network-dependency-tree-insight] Network dependency tree
+  Score: 0
+  Description: [Avoid chaining critical requests](https://developer.chrome.com/docs/performance/insights/network-dependency-tree) by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.
+  Items:
+    1: {"type":"list-section","value":{"type":"network-tree","chains":{"96390910DEAB05656B771584D35AF1E3":{"url":"https://www.isnantobudi.online/","navStartToEndTime":5002,"transferSize":1053,"isLongest":true,"children":{"96390910DEAB05656B771584D35AF1E3":{"url":"https://www.isnantobudi.online/","navStartToEndTime":5002,"transferSize":1053,"isLongest":true,"children":{"26828.3":{"url":"https://www.isnantobudi.online/assets/index-DW3wzga2.js","navStartToEndTime":5572,"transferSize":117432,"isLongest":true,"children":{"26828.46":{"url":"https://www.isnantobudi.online/assets/Contact-Cozae6oW.js","navStartToEndTime":7581,"transferSize":3843,"isLongest":true,"children":{}},"26828.41":{"url":"https://www.isnantobudi.online/assets/Projects-C2sEmGLv.js","navStartToEndTime":7223,"transferSize":1860,"children":{}},"26828.40":{"url":"https://www.isnantobudi.online/assets/Skills-BsTNZmhO.js","navStartToEndTime":6901,"transferSize":2019,"children":{}},"26828.39":{"url":"https://www.isnantobudi.online/assets/Experience-CiUVuCUj.js","navStartToEndTime":6330,"transferSize":1489,"children":{}},"26828.35":{"url":"https://www.isnantobudi.online/assets/About-ZWWvgoLf.js","navStartToEndTime":6024,"transferSize":2168,"children":{}},"26828.36":{"url":"https://www.isnantobudi.online/assets/code-z469PtuO.js","navStartToEndTime":5969,"transferSize":472,"children":{}}}},"26828.4":{"url":"https://www.isnantobudi.online/assets/index-BBquGaDJ.css","navStartToEndTime":5397,"transferSize":8046,"children":{"26828.9":{"url":"https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@700&display=swap","navStartToEndTime":5622,"transferSize":1284,"children":{"26828.17":{"url":"https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2","navStartToEndTime":5852,"transferSize":48464,"children":{}}}}}},"26828.8":{"url":"https://www.isnantobudi.online/assets/site-DGWt2i2_.webmanifest","navStartToEndTime":5774,"transferSize":753,"children":{}}}}}}},"longestChain":{"duration":7581}}}
+    2: {"type":"list-section","title":"Preconnected origins","description":"[preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.","value":{"type":"text","value":"no origins were preconnected"}}
+    3: {"type":"list-section","title":"Preconnect candidates","description":"Add [preconnect](https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/) hints to your most important origins, but try to use no more than 4.","value":{"type":"table","headings":[{"key":"origin","valueType":"text","label":"Origin"},{"key":"wastedMs","valueType":"ms","label":"Est LCP savings"}],"items":[{"origin":"https://fonts.googleapis.com","wastedMs":368.06000000000006},{"origin":"https://www.google-analytics.com","wastedMs":300}]}}
+
+[render-blocking-insight] Render-blocking requests
+  Score: 0
+  Description: Requests are blocking the page's initial render, which may delay LCP. [Deferring or inlining](https://developer.chrome.com/docs/performance/insights/render-blocking) can move these network requests out of the critical path.
+  Display Value: Est savings of 1,230 ms
+  Items:
+    1: {"url":"https://www.isnantobudi.online/assets/index-BBquGaDJ.css","totalBytes":8046}
+    2: {"url":"https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Grotesk:wght@700&display=swap","totalBytes":1284,"wastedMs":873}
