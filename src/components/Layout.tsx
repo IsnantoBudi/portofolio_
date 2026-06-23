@@ -5,18 +5,6 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { 
   Moon, 
   Sun,
-  ArrowRight, 
-  Linkedin, 
-  Mail, 
-  MapPin, 
-  Code, 
-  Smartphone, 
-  Database, 
-  Cpu, 
-  ExternalLink,
-  Briefcase,
-  BookOpen,
-  Send,
   Menu,
   X
 } from 'lucide-react';

@@ -5,7 +5,6 @@
 
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import type { Screen } from './types';
-import { motion } from 'motion/react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 
