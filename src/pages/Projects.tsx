@@ -7,7 +7,7 @@ import tenantMasterImg     from '../assets/images/tenant_master/home tenant mast
 import schoolManagementImg from '../assets/images/project manajemen sekolah/project menejemen web.webp';
 import ajarVisualImg       from '../assets/images/ajarvisual/AjarVisual_dashbord.png';
 import syncBoardImg        from '../assets/images/syncboard/SyncBoard.webp';
-import carikerjaAiImg      from '../assets/images/carikerja_ai/carikerja_ai.png';
+import benerinCvImg        from '../assets/images/benerincv/BenerinCV.png';
 
 export default function Projects() {
   const { t } = useLanguage();
@@ -55,13 +55,13 @@ export default function Projects() {
     },
     {
       id: 5,
-      title: 'CariKerja AI',
+      title: 'BenerinCV',
       description: t('proj.p5.desc'),
       tags: ['Next.js', 'Gemini AI', 'Supabase', 'TypeScript', 'Cloudflare R2'],
-      image: carikerjaAiImg,
+      image: benerinCvImg,
       type: 'featured',
       colSpan: 'md:col-span-12',
-      link: 'https://carikerja.isnantobudi.online/'
+      link: 'https://www.benerincv.web.id/'
     }
   ];
 
