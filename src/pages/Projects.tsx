@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, Github, ExternalLink, X, Lock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-import tenantMasterImg     from '../assets/images/tenant_master/home tenant master.webp';
+import tenantMasterImg from '../assets/images/tenant_master/home tenant master.webp';
 import schoolManagementImg from '../assets/images/project manajemen sekolah/project menejemen web.webp';
-import ajarVisualImg       from '../assets/images/ajarvisual/AjarVisual_dashbord.png';
-import syncBoardImg        from '../assets/images/syncboard/SyncBoard.webp';
-import benerinCvImg        from '../assets/images/benerincv/BenerinCV.png';
+import ajarVisualImg from '../assets/images/ajarvisual/AjarVisual_dashbord.png';
+import syncBoardImg from '../assets/images/syncboard/SyncBoard.webp';
+import benerinCvImg from '../assets/images/benerincv/BenerinCV.webp';
 
 interface Project {
   id: number;
@@ -153,14 +153,14 @@ export default function Projects() {
     <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24">
       {/* Section Header */}
       <header className="mb-16 max-w-4xl">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="text-6xl md:text-8xl font-black text-brand-orange mb-6 leading-[0.85]"
         >
-          <span>{t('proj.title1')}</span><br/><span>{t('proj.title2')}</span>
+          <span>{t('proj.title1')}</span><br /><span>{t('proj.title2')}</span>
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -179,11 +179,10 @@ export default function Projects() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative rounded-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                  isActive 
-                    ? 'text-black font-black' 
+                className={`relative rounded-full px-5 py-2 text-xs font-black uppercase tracking-wider transition-all duration-300 cursor-pointer ${isActive
+                    ? 'text-black font-black'
                     : 'text-on-surface-variant hover:text-on-surface'
-                }`}
+                  }`}
               >
                 {isActive && (
                   <motion.div
@@ -200,13 +199,13 @@ export default function Projects() {
       </div>
 
       {/* Bento Grid Gallery */}
-      <motion.div 
+      <motion.div
         layout
         className="grid grid-cols-1 md:grid-cols-12 gap-8"
       >
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project) => (
-            <motion.article 
+            <motion.article
               key={project.id}
               layout
               initial={{ opacity: 0, scale: 0.95 }}
@@ -218,9 +217,9 @@ export default function Projects() {
             >
               {/* Card Image Container */}
               <div className="w-full h-[220px] md:h-[280px] lg:h-[320px] bg-neutral-900 relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                 />
                 {/* Hover overlay gradient */}
@@ -233,7 +232,7 @@ export default function Projects() {
                   </p>
                 </div>
               </div>
-              
+
               {/* Card Text Content */}
               <div className="p-8 flex flex-col justify-between flex-grow">
                 <div>
@@ -252,40 +251,40 @@ export default function Projects() {
                     {t(project.descriptionKey)}
                   </p>
                 </div>
-                
+
                 {/* Actions Footer */}
                 <div className="flex items-center justify-between border-t border-outline pt-5">
                   <span className="inline-flex items-center gap-1.5 text-[10px] font-black text-on-surface-variant uppercase tracking-widest group-hover:text-brand-orange transition-colors">
                     {t('proj.detail')} <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
-                  
+
                   {/* Action Buttons */}
                   <div className="flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
                     {project.link ? (
-                      <a 
-                        href={project.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="p-2 rounded-full border border-outline hover:border-brand-orange hover:text-brand-orange hover:bg-brand-orange hover:text-black transition-all cursor-pointer flex items-center justify-center"
                         aria-label="Live Demo"
                       >
                         <ExternalLink className="w-4 h-4" />
                       </a>
                     ) : null}
-                    
+
                     {project.github ? (
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="p-2 rounded-full border border-outline hover:border-brand-orange hover:text-brand-orange hover:bg-brand-orange hover:text-black transition-all cursor-pointer flex items-center justify-center"
                         aria-label="GitHub Repository"
                       >
                         <Github className="w-4 h-4" />
                       </a>
                     ) : (
-                      <span 
-                        className="p-2 rounded-full border border-outline text-on-surface-variant/40 flex items-center justify-center cursor-not-allowed" 
+                      <span
+                        className="p-2 rounded-full border border-outline text-on-surface-variant/40 flex items-center justify-center cursor-not-allowed"
                         title="Private Repository"
                       >
                         <Lock className="w-4 h-4" />
@@ -311,7 +310,7 @@ export default function Projects() {
               onClick={() => setSelectedProject(null)}
               className="absolute inset-0 bg-black/75 backdrop-blur-md cursor-pointer"
             />
-            
+
             {/* Modal Window */}
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
@@ -328,14 +327,14 @@ export default function Projects() {
               >
                 <X className="w-5 h-5" />
               </button>
-              
+
               {/* Scrollable Modal Content */}
               <div className="overflow-y-auto flex-grow">
                 {/* Banner/Image */}
                 <div className="w-full h-[200px] md:h-[300px] relative bg-neutral-900">
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title} 
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
                     className="w-full h-full object-cover object-top opacity-85"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-default via-surface-default/20 to-transparent" />
@@ -352,7 +351,7 @@ export default function Projects() {
                     </h3>
                   </div>
                 </div>
-                
+
                 {/* Detail Content Grid */}
                 <div className="p-6 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-8">
                   {/* Main Column */}
@@ -366,7 +365,7 @@ export default function Projects() {
                         {t(selectedProject.detailsKey.challenge)}
                       </p>
                     </div>
-                    
+
                     {/* Solution */}
                     <div className="space-y-2">
                       <h4 className="text-xs font-black text-brand-orange uppercase tracking-widest">
@@ -376,7 +375,7 @@ export default function Projects() {
                         {t(selectedProject.detailsKey.solution)}
                       </p>
                     </div>
-                    
+
                     {/* Key Features */}
                     <div className="space-y-3">
                       <h4 className="text-xs font-black text-brand-orange uppercase tracking-widest">
@@ -392,7 +391,7 @@ export default function Projects() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Sidebar Column */}
                   <div className="space-y-6 bg-outline/20 border border-outline rounded-2xl p-6 md:p-8 h-fit">
                     {/* Role */}
@@ -404,7 +403,7 @@ export default function Projects() {
                         {t(selectedProject.detailsKey.role)}
                       </p>
                     </div>
-                    
+
                     {/* Impact */}
                     <div className="space-y-1">
                       <span className="text-[10px] font-black text-brand-orange uppercase tracking-widest">
@@ -414,7 +413,7 @@ export default function Projects() {
                         {t(selectedProject.detailsKey.impact)}
                       </p>
                     </div>
-                    
+
                     {/* Tech Stack */}
                     <div className="space-y-2">
                       <span className="text-[10px] font-black text-brand-orange uppercase tracking-widest">
@@ -431,7 +430,7 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Modal Footer */}
               <div className="p-6 md:px-10 border-t border-outline flex items-center justify-end gap-4 bg-outline/10">
                 {selectedProject.link && (
@@ -444,7 +443,7 @@ export default function Projects() {
                     Live Demo <ExternalLink className="w-4 h-4" />
                   </a>
                 )}
-                
+
                 {selectedProject.github ? (
                   <a
                     href={selectedProject.github}
